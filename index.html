@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KAVACH Dental Hospital | Advanced Painless Dentistry</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#F0FDF4',
+              100: '#DCFCE7',
+              500: '#22C55E',
+              600: '#16A34A',
+              700: '#15803D',
+              800: '#166534',
+              900: '#064E3B',
+            },
+            dark: {
+              950: '#030712',
+              900: '#0F172A',
+              800: '#1E293B',
+              700: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth interactive slider handle */
+    .slider-handle-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: #FFFFFF;
+      box-shadow: 0 0 16px rgba(0,0,0,0.5);
+      cursor: ew-resize;
+      z-index: 30;
+      transform: translateX(-50%);
+    }
+
+    /* Pulse animation */
+    @keyframes pulseSoft {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.04); opacity: 0.9; }
+    }
+    .animate-pulse-soft {
+      animation: pulseSoft 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-dark-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP ANNOUNCEMENT STRIP (HIGH CONTRAST & CLEAR) -->
+  <!-- ========================================================================= -->
+  <div class="bg-dark-950 text-white text-xs font-medium py-2.5 px-4 sm:px-8 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="bg-emerald-500 text-dark-950 font-bold px-2.5 py-0.5 rounded text-[11px] uppercase tracking-wide">
+          NABH Accredited Hospital
+        </span>
+        <span class="text-slate-300 hidden sm:inline text-xs">AIIMS &amp; Manipal Specialist Faculty &bull; Bengaluru, Mumbai &amp; New Delhi</span>
+      </div>
+      <div class="flex items-center gap-6 text-xs">
+        <a href="tel:+918049219800" class="hover:text-emerald-400 font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Helpline: +91 80 4921 9800</span>
+        </a>
+        <a href="https://wa.me/919886012345" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp Doctor Advice</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. NAVBAR (SIMPLE WORDS: HOME, TREATMENTS, DOCTORS, PRICING, BLOG, CONTACT) -->
+  <!-- ========================================================================= -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0">
+        <div class="w-11 h-11 bg-brand-900 text-emerald-300 rounded-xl flex items-center justify-center font-extrabold text-xl shadow-md">
+          K
+        </div>
+        <div>
+          <span class="font-extrabold text-xl tracking-tight text-dark-900 block leading-tight">
+            KAVACH
+          </span>
+          <span class="text-xs font-semibold text-brand-700 tracking-wider uppercase block">
+            Dental Hospital
+          </span>
+        </div>
+      </a>
+
+      <!-- Simple Menu Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-dark-700">
+        <a href="index.html" class="text-brand-900 border-b-2 border-brand-900 pb-1">Home</a>
+        <a href="treatments.html" class="hover:text-brand-900 transition pb-1">Treatments</a>
+        <a href="doctors.html" class="hover:text-brand-900 transition pb-1 flex items-center gap-1.5">
+          <span>Doctors</span>
+          <span class="bg-emerald-100 text-brand-900 text-xs font-extrabold px-2 py-0.5 rounded-full">Specialists</span>
+        </a>
+        <a href="pricing.html" class="hover:text-brand-900 transition pb-1">Pricing</a>
+        <a href="blog.html" class="hover:text-brand-900 transition pb-1">Blog</a>
+        <a href="contact.html" class="hover:text-brand-900 transition pb-1">Contact</a>
+      </nav>
+
+      <!-- Right Action Button -->
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button onclick="openModal('General OPD')" class="bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+          <i data-lucide="calendar" class="w-4 h-4 text-emerald-300"></i>
+          <span>Book Appointment</span>
+        </button>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobile-toggle" class="md:hidden p-2 text-dark-900">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-4 font-bold text-base text-dark-800 shadow-xl">
+      <a href="index.html" class="block text-brand-900 py-1">Home</a>
+      <a href="treatments.html" class="block hover:text-brand-900 py-1">Treatments</a>
+      <a href="doctors.html" class="block hover:text-brand-900 py-1">Doctors</a>
+      <a href="pricing.html" class="block hover:text-brand-900 py-1">Pricing</a>
+      <a href="blog.html" class="block hover:text-brand-900 py-1">Blog</a>
+      <a href="contact.html" class="block hover:text-brand-900 py-1">Contact</a>
+      <button onclick="openModal('General OPD')" class="w-full mt-3 bg-brand-900 text-white font-bold py-3.5 rounded-xl text-center shadow">
+        Book Appointment
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. HERO & INTERACTIVE TEETH WHITENING STUDIO (ZERO BG SHIFT, BIT-ALIGNED) -->
+  <!-- ========================================================================= -->
+  <section class="py-14 lg:py-20 bg-gradient-to-b from-white to-[#F8FAFC] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Headline & Tagline -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-brand-900 text-xs font-bold px-4 py-1.5 rounded-full mb-4 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>Philips Zoom Cold Laser &bull; Up to 8 Shades Whiter in 45 Minutes</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-dark-900 leading-tight">
+          Turn Stained Yellow Teeth Into a Confident White Smile.
+        </h1>
+        <p class="text-base sm:text-lg text-dark-700 mt-4 leading-relaxed max-w-2xl mx-auto">
+          Move the slider below to see the clinical transformation. The face, lighting, and background never shift—only the teeth change from yellow chai stains to radiant white enamel.
+        </p>
+      </div>
+
+      <!-- MAIN INTERACTIVE SLIDER STAGE -->
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-2xl p-4 sm:p-7">
+        
+        <!-- Slider Stage Box -->
+        <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] max-h-[520px] rounded-2xl overflow-hidden select-none bg-slate-950 border border-slate-200 shadow-inner" id="hero-slider-box">
+          
+          <!-- Layer 1: AFTER (Clean White Teeth) Base & Clipped Badge -->
+          <img src="assets/after-white.jpg" alt="After: Confident bright white smile" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
+          
+          <!-- After Badge Layer (Clipped to only show on the AFTER side) -->
+          <div class="absolute inset-0 select-none pointer-events-none overflow-hidden z-20" id="hero-after-clip" style="clip-path: inset(0 0 0 50%);">
+            <div class="absolute top-4 right-4 bg-emerald-950/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-lg backdrop-blur-md flex items-center gap-1.5 border border-emerald-500/30 pointer-events-auto">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+              <span>AFTER: Confident White Teeth</span>
+            </div>
+          </div>
+
+          <!-- Layer 2: BEFORE (Yellow Teeth) Overlaid with Exact Clip-Path & Clipped Badge -->
+          <div class="absolute inset-0 select-none pointer-events-none overflow-hidden z-10" id="hero-clip-overlay" style="clip-path: inset(0 calc(100% - 50%) 0 0);">
+            <img src="assets/before-yellow.jpg" alt="Before: Yellow stained teeth" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
+            <!-- Before Badge (Clipped naturally with the Before layer) -->
+            <div class="absolute top-4 left-4 bg-dark-950/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl shadow-lg backdrop-blur-md flex items-center gap-1.5 border border-amber-500/30 pointer-events-auto">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-amber-400"></i>
+              <span>BEFORE: Yellow Discoloration</span>
+            </div>
+          </div>
+
+          <!-- Interactive Handle -->
+          <div class="slider-handle-line" id="hero-handle" style="left: 50%;">
+            <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-white text-brand-900 rounded-full shadow-2xl flex items-center justify-center font-extrabold border-2 border-brand-900 cursor-grab active:cursor-grabbing hover:scale-110 transition-transform">
+              <i data-lucide="chevrons-left-right" class="w-6 h-6 text-brand-900"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Quick Jump Toolbar & Live Metrics -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-6">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-extrabold text-dark-700 uppercase tracking-wide">Quick View:</span>
+            <button onclick="setSlider(10)" class="px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-bold text-dark-800 hover:bg-slate-100 transition">
+              Yellow Stains (Before)
+            </button>
+            <button onclick="setSlider(50)" class="px-3.5 py-2 rounded-xl border-2 border-brand-900 bg-brand-50 text-brand-900 text-xs font-extrabold transition shadow-sm">
+              50 / 50 Comparison
+            </button>
+            <button onclick="setSlider(90)" class="px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-bold text-dark-800 hover:bg-slate-100 transition">
+              Clean White (After)
+            </button>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="text-right">
+              <span class="text-xs text-dark-700 block">All-Inclusive Fee</span>
+              <span class="text-base font-extrabold text-brand-900">₹12,000</span>
+            </div>
+            <button onclick="openModal('Teeth Whitening')" class="bg-brand-900 hover:bg-brand-800 text-white text-xs font-bold px-5 py-3 rounded-xl transition shadow">
+              Book Whitening Visit &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Hospital Metrics Pills -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-100 text-center">
+          <div class="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200">
+            <span class="text-2xl font-extrabold text-brand-900 block font-serif">8 Shades</span>
+            <span class="text-[11px] text-dark-700 font-semibold">Brighter on VITA Scale</span>
+          </div>
+          <div class="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200">
+            <span class="text-2xl font-extrabold text-brand-900 block font-serif">45 Mins</span>
+            <span class="text-[11px] text-dark-700 font-semibold">Single In-Office Session</span>
+          </div>
+          <div class="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200">
+            <span class="text-2xl font-extrabold text-brand-900 block font-serif">0% Pain</span>
+            <span class="text-[11px] text-dark-700 font-semibold">ACP Desensitizing Shield</span>
+          </div>
+          <div class="p-3 bg-[#F8FAFC] rounded-xl border border-slate-200">
+            <span class="text-2xl font-extrabold text-brand-900 block font-serif">100% Safe</span>
+            <span class="text-[11px] text-dark-700 font-semibold">Zero Enamel Erosion</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. INTERACTIVE "SMART SMILE ESTIMATOR" (PLAY WITH IT!) -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-brand-700 block mb-1">Interactive Tool</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-dark-900">Build Your Treatment Plan</h2>
+        <p class="text-dark-700 text-sm sm:text-base mt-2">
+          Click your dental concern below to see the recommended treatment, doctor, timeline, and exact hospital fee.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto bg-[#F8FAFC] rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+        
+        <!-- Step 1: Select Concern -->
+        <div class="mb-8">
+          <label class="block text-xs font-extrabold text-dark-900 uppercase tracking-wider mb-3">
+            1. Select Your Dental Concern:
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <button onclick="setEstimatorConcern('whitening')" id="est-whitening" class="est-btn p-3.5 rounded-2xl border-2 border-brand-900 bg-white text-dark-900 font-bold text-xs text-left shadow-sm transition hover:scale-102">
+              <i data-lucide="sparkles" class="w-5 h-5 text-emerald-600 mb-2"></i>
+              <div class="font-extrabold text-sm">Yellow Stained Teeth</div>
+              <div class="text-[11px] text-dark-700 mt-0.5">Tea, coffee, tobacco</div>
+            </button>
+
+            <button onclick="setEstimatorConcern('rootcanal')" id="est-rootcanal" class="est-btn p-3.5 rounded-2xl border border-slate-200 bg-white text-dark-900 font-bold text-xs text-left transition hover:border-brand-900">
+              <i data-lucide="shield-alert" class="w-5 h-5 text-emerald-600 mb-2"></i>
+              <div class="font-extrabold text-sm">Toothache / Cavity</div>
+              <div class="text-[11px] text-dark-700 mt-0.5">Save infected tooth</div>
+            </button>
+
+            <button onclick="setEstimatorConcern('implant')" id="est-implant" class="est-btn p-3.5 rounded-2xl border border-slate-200 bg-white text-dark-900 font-bold text-xs text-left transition hover:border-brand-900">
+              <i data-lucide="anchor" class="w-5 h-5 text-emerald-600 mb-2"></i>
+              <div class="font-extrabold text-sm">Missing Tooth</div>
+              <div class="text-[11px] text-dark-700 mt-0.5">Permanent titanium root</div>
+            </button>
+
+            <button onclick="setEstimatorConcern('aligners')" id="est-aligners" class="est-btn p-3.5 rounded-2xl border border-slate-200 bg-white text-dark-900 font-bold text-xs text-left transition hover:border-brand-900">
+              <i data-lucide="smile" class="w-5 h-5 text-emerald-600 mb-2"></i>
+              <div class="font-extrabold text-sm">Crooked Smile</div>
+              <div class="text-[11px] text-dark-700 mt-0.5">Invisalign clear aligners</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: Dynamic Result Card -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-md">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            
+            <div class="md:col-span-8 space-y-3">
+              <div class="flex items-center gap-2">
+                <span id="est-badge" class="bg-emerald-100 text-brand-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase">
+                  Aesthetic Dentistry
+                </span>
+                <span id="est-time" class="text-xs text-dark-700 font-bold">1 Visit &bull; 45 Minutes</span>
+              </div>
+              <h3 id="est-title" class="font-serif text-2xl sm:text-3xl font-extrabold text-dark-900">
+                Philips Zoom Laser Teeth Whitening
+              </h3>
+              <p id="est-desc" class="text-sm text-dark-700 leading-relaxed">
+                Removes deep tea and coffee stains using dental-grade cold LED technology. Up to 8 shades whiter with zero enamel erosion.
+              </p>
+              <div class="text-xs text-dark-800 font-semibold pt-1">
+                Consulting Doctor: <strong id="est-doctor" class="text-brand-900 font-extrabold">Dr. Rohan Mehra, MDS</strong>
+              </div>
+            </div>
+
+            <div class="md:col-span-4 bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 text-center flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-dark-700 uppercase">Hospital Tariff</span>
+                <div id="est-price" class="text-3xl font-extrabold text-brand-900 my-1">₹12,000</div>
+                <span class="text-[11px] text-emerald-700 font-bold block">100% Transparent Billing</span>
+              </div>
+              <button onclick="bookEstimatorSelection()" class="mt-4 w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs py-3.5 rounded-xl transition shadow">
+                Book This Treatment &rarr;
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. BENTO GRID: HOSPITAL INFRASTRUCTURE & SAFETY -->
+  <!-- ========================================================================= -->
+  <section class="py-20 bg-[#F8FAFC] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-brand-700 block mb-1">NABH Standards</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-dark-900">Hospital Technology &amp; Safety</h2>
+        <p class="text-dark-700 text-sm sm:text-base mt-2">
+          Engineered for clinical precision, minimal radiation, and painless surgery.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Bento 1: 3D CBCT Scan -->
+        <div class="md:col-span-7 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-900 flex items-center justify-center mb-6">
+              <i data-lucide="scan" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-brand-700 uppercase tracking-wider">Sub-Millimeter Radiology</span>
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900 mt-1 mb-3">Carestream 3D Low-Dose CBCT</h3>
+            <p class="text-dark-700 text-sm leading-relaxed">
+              Provides 360-degree high-definition volumetric bone imaging for dental implants and complex root canals. Operates with 77% lower radiation than standard medical CT scanners.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand-900">
+            <span>In-House at Bengaluru, Mumbai &amp; Delhi</span>
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+          </div>
+        </div>
+
+        <!-- Bento 2: 24/7 Trauma Hotline -->
+        <div class="md:col-span-5 bg-dark-950 text-white rounded-3xl border border-slate-800 p-8 sm:p-10 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mb-6">
+              <i data-lucide="shield-alert" class="w-6 h-6"></i>
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Emergency Care</span>
+            </div>
+            <h3 class="font-serif text-2xl font-extrabold text-white mt-1 mb-3">24/7 Dental Trauma Care</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Immediate hospital response for knocked-out teeth, acute facial swellings, and severe tooth fractures with trauma surgeons on standby.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <a href="tel:+918049219800" class="text-emerald-400 hover:text-white font-extrabold text-sm flex items-center justify-between transition">
+              <span>Emergency Helpline: +91 80 4921 9800</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bento 3: 100% Painless Guarantee -->
+        <div class="md:col-span-6 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-900 flex items-center justify-center mb-6">
+              <i data-lucide="heart" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900 mb-3">Computerized Pain-Free Anaesthesia</h3>
+            <p class="text-dark-700 text-sm leading-relaxed">
+              We use Milestone Wand computerized flow systems to deliver local anaesthesia with zero stinging or pressure pain. Even patients with severe dental anxiety feel completely comfortable.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-emerald-700 flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>Zero Pain Guarantee on all surgical procedures</span>
+          </div>
+        </div>
+
+        <!-- Bento 4: Class-B Sterilization -->
+        <div class="md:col-span-6 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-brand-900 flex items-center justify-center mb-6">
+              <i data-lucide="check-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900 mb-3">European Class-B Sterilization</h3>
+            <p class="text-dark-700 text-sm leading-relaxed">
+              Every surgical kit undergoes ultrasonic bio-cleaning, automated vacuum sealing, and fractional Class-B autoclaving with biological spore testing before every patient.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-bold text-emerald-700 flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>100% Hospital Infection Control Charter</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 6. 3D DOCTORS CALLOUT BANNER -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-tr from-dark-950 to-brand-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-2xl">
+          <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full inline-block">
+            Interactive 3D Technology
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">
+            Explore 3D Dental Anatomy &amp; Specialists
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Rotate an interactive 3D tooth model, test teeth whitening shades in real time, and learn how our AIIMS &amp; Manipal doctors treat each condition.
+          </p>
+        </div>
+        <a href="doctors.html" class="bg-emerald-500 hover:bg-emerald-400 text-dark-950 font-extrabold text-sm px-8 py-4 rounded-xl shadow-lg transition shrink-0 flex items-center gap-2">
+          <span>Meet Specialists</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 7. THREE HOSPITAL LOCATIONS -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#F8FAFC] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-brand-700 block mb-1">Tertiary Centers</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-dark-900">Hospital Locations</h2>
+        <p class="text-dark-700 text-sm mt-2">Walk in or schedule an appointment at our metro hospitals.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900">Bengaluru</h3>
+            <span class="bg-emerald-100 text-brand-900 text-[10px] font-bold px-2.5 py-0.5 rounded">Flagship</span>
+          </div>
+          <p class="text-dark-700 text-sm leading-relaxed">
+            412, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038
+          </p>
+          <div class="pt-2 text-xs text-dark-700 space-y-1.5 border-t border-slate-100">
+            <div><strong>Helpline:</strong> +91 80 4921 9800</div>
+            <div><strong>Hours:</strong> Mon - Sat: 9:00 AM - 8:30 PM</div>
+          </div>
+          <button onclick="openModal('Bengaluru Center')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs py-3 rounded-xl transition mt-2">
+            Book at Bengaluru &rarr;
+          </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900">Mumbai</h3>
+            <span class="bg-emerald-100 text-brand-900 text-[10px] font-bold px-2.5 py-0.5 rounded">Bandra West</span>
+          </div>
+          <p class="text-dark-700 text-sm leading-relaxed">
+            Turner Road, Opp. Kotak Bank, Bandra West, Mumbai 400050
+          </p>
+          <div class="pt-2 text-xs text-dark-700 space-y-1.5 border-t border-slate-100">
+            <div><strong>Helpline:</strong> +91 22 6154 8800</div>
+            <div><strong>Hours:</strong> Mon - Sat: 9:30 AM - 8:30 PM</div>
+          </div>
+          <button onclick="openModal('Mumbai Center')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs py-3 rounded-xl transition mt-2">
+            Book at Mumbai &rarr;
+          </button>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <h3 class="font-serif text-2xl font-extrabold text-dark-900">New Delhi</h3>
+            <span class="bg-emerald-100 text-brand-900 text-[10px] font-bold px-2.5 py-0.5 rounded">Defence Colony</span>
+          </div>
+          <p class="text-dark-700 text-sm leading-relaxed">
+            D-48, Ring Road, Defence Colony, New Delhi 110024
+          </p>
+          <div class="pt-2 text-xs text-dark-700 space-y-1.5 border-t border-slate-100">
+            <div><strong>Helpline:</strong> +91 11 4820 7700</div>
+            <div><strong>Hours:</strong> Mon - Sat: 9:00 AM - 8:00 PM</div>
+          </div>
+          <button onclick="openModal('New Delhi Center')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs py-3 rounded-xl transition mt-2">
+            Book at New Delhi &rarr;
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 8. FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-dark-950 text-slate-300 pt-16 pb-12 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand-900 text-emerald-300 rounded-xl flex items-center justify-center font-extrabold text-xl">
+              K
+            </div>
+            <div>
+              <span class="font-extrabold text-xl text-white block leading-none">KAVACH</span>
+              <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider block mt-1">Dental Hospital</span>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            NABH-accredited tertiary oral healthcare hospital providing painless dental surgery, laser whitening, and micro-endodontics across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="treatments.html" class="hover:text-white transition">Treatments</a></li>
+            <li><a href="doctors.html" class="hover:text-white transition">Doctors</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Hospital Locations</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><span class="text-white font-semibold">Bengaluru:</span> 100 Feet Rd, Indiranagar</li>
+            <li><span class="text-white font-semibold">Mumbai:</span> Turner Rd, Bandra West</li>
+            <li><span class="text-white font-semibold">New Delhi:</span> Ring Rd, Defence Colony</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Contact Helpline</h4>
+          <p class="text-xs text-slate-400 mb-2">Central Hospital Desk: <span class="text-white font-bold">+91 80 4921 9800</span></p>
+          <p class="text-xs text-slate-400 mb-4">Email: <span class="text-white">care@kavachdental.in</span></p>
+          <div class="inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-800 text-emerald-300 text-xs px-3.5 py-2 rounded-xl">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>Emergency Dental Trauma 24/7</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-xs gap-4">
+        <p>&copy; 2026 KAVACH Dental Hospital. All clinical rights reserved. DCI Reg #KA-2018-DCI-9041.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">NABH Quality Charter</a>
+          <a href="#" class="hover:text-slate-300">Biomedical Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 9. APPOINTMENT MODAL -->
+  <!-- ========================================================================= -->
+  <div id="appointment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-dark-900 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded border border-brand-100">
+          Hospital Appointment
+        </span>
+        <h3 class="font-serif text-2xl font-bold text-dark-900 mt-2">Book Doctor Visit</h3>
+        <p class="text-xs text-dark-700 mt-1">Confirmed OPD slot with senior dental specialists.</p>
+      </div>
+
+      <form onsubmit="handleAppointmentSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-dark-900 mb-1">Full Patient Name *</label>
+          <input type="text" required placeholder="e.g. Ananya Nair" class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Mobile (+91) *</label>
+            <input type="tel" required placeholder="98765 43210" class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Select Hospital *</label>
+            <select class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none bg-white">
+              <option>Bengaluru (Indiranagar)</option>
+              <option>Mumbai (Bandra West)</option>
+              <option>New Delhi (Defence Colony)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-dark-900 mb-1">Treatment / Concern *</label>
+          <input type="text" id="modal-dept-input" value="Teeth Whitening" class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none bg-slate-50 font-semibold text-brand-900">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Preferred Date *</label>
+            <input type="date" required class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Preferred Time *</label>
+            <select class="w-full text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-brand-900 focus:outline-none bg-white">
+              <option>Morning (10:00 AM - 01:00 PM)</option>
+              <option>Afternoon (02:00 PM - 05:00 PM)</option>
+              <option>Evening (05:00 PM - 08:30 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm py-4 rounded-xl shadow transition mt-2">
+          Confirm Appointment (SMS &amp; WhatsApp Token)
+        </button>
+
+        <p class="text-[11px] text-dark-700 text-center leading-tight">
+          Standard OPD fee ₹500 payable at hospital desk. Zero online advance required.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 10. JAVASCRIPT: BULLETPROOF CLIP-PATH SLIDER & INTERACTIVE ESTIMATOR -->
+  <!-- ========================================================================= -->
+  <script>
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        drawer.classList.toggle('hidden');
+      });
+    }
+
+    // Modal logic
+    function openModal(service) {
+      const modal = document.getElementById('appointment-modal');
+      const input = document.getElementById('modal-dept-input');
+      if (input && service) input.value = service;
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('appointment-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your appointment request has been logged. Our hospital coordinator will send your confirmation token via SMS & WhatsApp within 10 minutes.');
+      closeModal();
+    }
+
+    // =========================================================================
+    // BULLETPROOF CLIP-PATH TEETH WHITENING SLIDER
+    // Zero background movement, zero face movement, 100% bit-aligned!
+    // =========================================================================
+    const sliderBox = document.getElementById('hero-slider-box');
+    const clipOverlay = document.getElementById('hero-clip-overlay');
+    const afterClip = document.getElementById('hero-after-clip');
+    const handle = document.getElementById('hero-handle');
+
+    let isDragging = false;
+
+    function applySliderPos(clientX) {
+      if (!sliderBox || !clipOverlay || !handle) return;
+      const rect = sliderBox.getBoundingClientRect();
+      let pos = (clientX - rect.left) / rect.width;
+      if (pos < 0) pos = 0;
+      if (pos > 1) pos = 1;
+
+      const pct = pos * 100;
+      clipOverlay.style.clipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
+      if (afterClip) afterClip.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = `${pct}%`;
+    }
+
+    function setSlider(pct) {
+      if (!sliderBox || !clipOverlay || !handle) return;
+      clipOverlay.style.clipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
+      if (afterClip) afterClip.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      handle.style.left = `${pct}%`;
+    }
+
+    if (sliderBox) {
+      sliderBox.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        applySliderPos(e.clientX);
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        applySliderPos(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      // Mobile Touch
+      sliderBox.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        if (e.touches[0]) applySliderPos(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        if (e.touches[0]) applySliderPos(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+    }
+
+    // =========================================================================
+    // INTERACTIVE ESTIMATOR / SMILE BUILDER LOGIC
+    // =========================================================================
+    const estimatorData = {
+      whitening: {
+        badge: 'Aesthetic Dentistry',
+        time: '1 Visit \u2022 45 Minutes',
+        title: 'Philips Zoom Laser Teeth Whitening',
+        desc: 'Removes deep tea, coffee, and spice stains using dental-grade cold LED laser. Up to 8 shades whiter with zero enamel erosion.',
+        doctor: 'Dr. Rohan Mehra, MDS',
+        price: '₹12,000'
+      },
+      rootcanal: {
+        badge: 'Micro-Endodontics',
+        time: '1 Visit \u2022 60 Minutes',
+        title: 'Single-Sitting Painless Root Canal',
+        desc: 'Save your natural infected tooth under Carl Zeiss 24x surgical microscopes. Completely pain-free with 3D thermoplastic obturation.',
+        doctor: 'Dr. Ananya Sharma, MDS (AIIMS)',
+        price: '₹7,500'
+      },
+      implant: {
+        badge: 'Guided Implantology',
+        time: 'Same-Day Temporary Loading',
+        title: 'Nobel Biocare Titanium Dental Implant',
+        desc: 'Permanent replacement for missing teeth anchored directly into jawbone with 3D CBCT computer guides. Lifetime manufacturer warranty.',
+        doctor: 'Dr. Vikramaditya Sen, MDS (PGIMER)',
+        price: '₹38,000'
+      },
+      aligners: {
+        badge: 'Orthodontics',
+        time: '6 to 9 Months Total Course',
+        title: 'Invisalign Clear Aligners',
+        desc: 'Removable transparent aligner trays that straighten crowded or crooked teeth without uncomfortable metal brackets or dietary restrictions.',
+        doctor: 'Dr. Sneha Pillai, MDS',
+        price: '₹1,20,000'
+      }
+    };
+
+    let selectedConcern = 'whitening';
+
+    function setEstimatorConcern(key) {
+      selectedConcern = key;
+      document.querySelectorAll('.est-btn').forEach(btn => {
+        btn.classList.remove('border-2', 'border-brand-900', 'shadow-sm');
+        btn.classList.add('border', 'border-slate-200');
+      });
+      const activeBtn = document.getElementById(`est-${key}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('border', 'border-slate-200');
+        activeBtn.classList.add('border-2', 'border-brand-900', 'shadow-sm');
+      }
+
+      const data = estimatorData[key];
+      if (data) {
+        document.getElementById('est-badge').innerText = data.badge;
+        document.getElementById('est-time').innerText = data.time;
+        document.getElementById('est-title').innerText = data.title;
+        document.getElementById('est-desc').innerText = data.desc;
+        document.getElementById('est-doctor').innerText = data.doctor;
+        document.getElementById('est-price').innerText = data.price;
+      }
+    }
+
+    function bookEstimatorSelection() {
+      const data = estimatorData[selectedConcern];
+      if (data) {
+        openModal(data.title);
+      }
+    }
+  </script>
+</body>
+</html>

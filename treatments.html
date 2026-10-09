@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Treatments &amp; Procedures | KAVACH Dental Hospital</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              50: '#F0FDF4',
+              100: '#DCFCE7',
+              600: '#16A34A',
+              700: '#15803D',
+              800: '#166534',
+              900: '#064E3B',
+            },
+            dark: {
+              900: '#0F172A',
+              800: '#1E293B',
+              700: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#FBFBFA] text-dark-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP ANNOUNCEMENT STRIP -->
+  <!-- ========================================================================= -->
+  <div class="bg-dark-900 text-white text-xs font-medium py-2.5 px-4 sm:px-8 border-b border-dark-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <span class="bg-emerald-500 text-dark-900 font-bold px-2 py-0.5 rounded text-[11px] uppercase tracking-wide">
+          Hospital Procedures
+        </span>
+        <span class="text-slate-300 hidden sm:inline text-xs">Painless Dental Surgery &bull; Registered with Dental Council of India</span>
+      </div>
+      <div class="flex items-center gap-6 text-xs">
+        <a href="tel:+918049219800" class="hover:text-emerald-400 font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Helpline: +91 80 4921 9800</span>
+        </a>
+        <a href="https://wa.me/919886012345" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 transition">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Doctor Consultation</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. NAVBAR (SIMPLE WORDS) -->
+  <!-- ========================================================================= -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0">
+        <div class="w-11 h-11 bg-brand-900 text-emerald-300 rounded-xl flex items-center justify-center font-extrabold text-xl shadow-md">
+          K
+        </div>
+        <div>
+          <span class="font-extrabold text-xl tracking-tight text-dark-900 block leading-tight">
+            KAVACH
+          </span>
+          <span class="text-xs font-semibold text-brand-700 tracking-wider uppercase block">
+            Dental Hospital
+          </span>
+        </div>
+      </a>
+
+      <!-- Simple Menu Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-dark-700">
+        <a href="index.html" class="hover:text-brand-900 transition pb-1">Home</a>
+        <a href="treatments.html" class="text-brand-900 border-b-2 border-brand-900 pb-1">Treatments</a>
+        <a href="doctors.html" class="hover:text-brand-900 transition pb-1">Doctors</a>
+        <a href="pricing.html" class="hover:text-brand-900 transition pb-1">Pricing</a>
+        <a href="blog.html" class="hover:text-brand-900 transition pb-1">Blog</a>
+        <a href="contact.html" class="hover:text-brand-900 transition pb-1">Contact</a>
+      </nav>
+
+      <!-- Right Action Button -->
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button onclick="openModal('Treatment OPD')" class="bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+          <i data-lucide="calendar" class="w-4 h-4 text-emerald-300"></i>
+          <span>Book Appointment</span>
+        </button>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobile-toggle" class="md:hidden p-2 text-dark-900">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-4 font-bold text-base text-dark-800 shadow-xl">
+      <a href="index.html" class="block hover:text-brand-900 py-1">Home</a>
+      <a href="treatments.html" class="block text-brand-900 py-1">Treatments</a>
+      <a href="doctors.html" class="block hover:text-brand-900 py-1">Doctors</a>
+      <a href="pricing.html" class="block hover:text-brand-900 py-1">Pricing</a>
+      <a href="blog.html" class="block hover:text-brand-900 py-1">Blog</a>
+      <a href="contact.html" class="block hover:text-brand-900 py-1">Contact</a>
+      <button onclick="openModal('Treatment OPD')" class="w-full mt-3 bg-brand-900 text-white font-bold py-3.5 rounded-xl text-center shadow">
+        Book Appointment
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 3. PAGE HEADER -->
+  <!-- ========================================================================= -->
+  <section class="py-12 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-brand-900 text-xs font-bold px-3 py-1 rounded-full mb-3">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-700"></i>
+          <span>Hospital Quality Care &bull; Zero Pain Guarantee</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-dark-900 tracking-tight">
+          Clinical Treatments &amp; Procedures.
+        </h1>
+        <p class="text-base sm:text-lg text-dark-700 mt-3 leading-relaxed">
+          Every procedure at KAVACH is performed under strict hospital sterilisation standards with digital radiography, painless anaesthesia, and senior specialist consultants.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 4. DETAILED PROCEDURAL DOSSIERS (EASY TO READ) -->
+  <!-- ========================================================================= -->
+  <section class="py-16 bg-[#FBFBFA] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Treatment 1: Teeth Whitening -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-emerald-100 text-brand-900 text-xs font-bold px-3 py-1 rounded-full">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Aesthetic Dentistry</span>
+          </div>
+          <h2 class="font-serif text-3xl font-extrabold text-dark-900">Laser Teeth Whitening (Philips Zoom)</h2>
+          <p class="text-dark-700 text-base leading-relaxed">
+            Eliminates deep yellow discoloration caused by years of drinking tea, coffee, and spiced foods. Our dental-grade Philips Zoom cold LED activates a specialized whitening gel to dissolve stain molecules without weakening enamel.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2 text-sm text-dark-800">
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-emerald-700"></i>
+              <span>Duration: <strong>45 Minutes</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-emerald-700"></i>
+              <span>Shade Lift: <strong>Up to 8 Shades</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-emerald-700"></i>
+              <span>Enamel Safe: <strong>100% Guaranteed</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-700"></i>
+              <span>Doctor: <strong>Dr. Rohan Mehra</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-[#FBFBFA] p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-dark-700 uppercase">Fixed Tariff</span>
+            <div class="text-3xl font-extrabold text-brand-900 mt-1 mb-2">₹12,000</div>
+            <p class="text-xs text-dark-700 leading-relaxed mb-6">
+              Includes pre-treatment ultrasonic scaling, desensitizing ACP barrier, and VITA shade card assessment.
+            </p>
+          </div>
+          <button onclick="openModal('Philips Zoom Whitening')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm py-3.5 rounded-xl shadow transition">
+            Book Whitening Visit
+          </button>
+        </div>
+      </div>
+
+      <!-- Treatment 2: Root Canal -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-emerald-100 text-brand-900 text-xs font-bold px-3 py-1 rounded-full">
+            <i data-lucide="microscope" class="w-3.5 h-3.5"></i>
+            <span>Micro-Endodontics</span>
+          </div>
+          <h2 class="font-serif text-3xl font-extrabold text-dark-900">Single-Visit Painless Root Canal</h2>
+          <p class="text-dark-700 text-base leading-relaxed">
+            Preserve your natural tooth instead of extracting it. Using Carl Zeiss operating microscopes, our AIIMS endodontists precisely clean infected root canals and seal them in a single painless sitting.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2 text-sm text-dark-800">
+            <div class="flex items-center gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-emerald-700"></i>
+              <span>Duration: <strong>1 Visit (60 Min)</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="heart" class="w-4 h-4 text-emerald-700"></i>
+              <span>Pain Level: <strong>Completely Pain-Free</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="eye" class="w-4 h-4 text-emerald-700"></i>
+              <span>Guidance: <strong>Zeiss 24x Optics</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-700"></i>
+              <span>Doctor: <strong>Dr. Ananya Sharma (AIIMS)</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-[#FBFBFA] p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-dark-700 uppercase">Fixed Tariff</span>
+            <div class="text-3xl font-extrabold text-brand-900 mt-1 mb-2">₹7,500 <span class="text-sm font-normal text-dark-700">/ molar</span></div>
+            <p class="text-xs text-dark-700 leading-relaxed mb-6">
+              Includes digital RVG x-rays, rotary nickel-titanium instrumentation, and 3D thermoplastic obturation.
+            </p>
+          </div>
+          <button onclick="openModal('Painless Root Canal')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm py-3.5 rounded-xl shadow transition">
+            Book Root Canal Visit
+          </button>
+        </div>
+      </div>
+
+      <!-- Treatment 3: Implants -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 bg-emerald-100 text-brand-900 text-xs font-bold px-3 py-1 rounded-full">
+            <i data-lucide="anchor" class="w-3.5 h-3.5"></i>
+            <span>Guided Implantology</span>
+          </div>
+          <h2 class="font-serif text-3xl font-extrabold text-dark-900">Permanent Nobel Biocare Implants</h2>
+          <p class="text-dark-700 text-base leading-relaxed">
+            The gold standard replacement for missing teeth. Pure titanium implants naturally fuse into your jawbone, restoring 100% of your biting power and preserving facial bone structure for life.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2 text-sm text-dark-800">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-emerald-700"></i>
+              <span>Warranty: <strong>Lifetime Global Card</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="scan" class="w-4 h-4 text-emerald-700"></i>
+              <span>Planning: <strong>3D CBCT Guided</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="smile" class="w-4 h-4 text-emerald-700"></i>
+              <span>Material: <strong>Medical Grade Titanium</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-700"></i>
+              <span>Doctor: <strong>Dr. Vikramaditya Sen</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-[#FBFBFA] p-8 rounded-2xl border border-slate-200 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-dark-700 uppercase">Fixed Tariff</span>
+            <div class="text-3xl font-extrabold text-brand-900 mt-1 mb-2">₹38,000 <span class="text-sm font-normal text-dark-700">/ implant</span></div>
+            <p class="text-xs text-dark-700 leading-relaxed mb-6">
+              Includes 3D CBCT surgical guide, surgical sterile pack, and Nobel Biocare authentic serial passport.
+            </p>
+          </div>
+          <button onclick="openModal('Dental Implants')" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm py-3.5 rounded-xl shadow transition">
+            Book Implant Visit
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 5. FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="bg-dark-900 text-slate-300 pt-16 pb-12 border-t border-dark-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-dark-800">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand-900 text-emerald-300 rounded-xl flex items-center justify-center font-extrabold text-xl">
+              K
+            </div>
+            <div>
+              <span class="font-extrabold text-xl text-white block leading-none">KAVACH</span>
+              <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider block mt-1">Dental Hospital</span>
+            </div>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Tertiary multi-speciality oral healthcare center with faculty from AIIMS, Manipal, and PGIMER.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="treatments.html" class="text-white font-bold transition">Treatments</a></li>
+            <li><a href="doctors.html" class="hover:text-white transition">Doctors (3D View)</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Hospital Centers</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><span class="text-white font-semibold">Bengaluru:</span> 100 Feet Rd, Indiranagar</li>
+            <li><span class="text-white font-semibold">Mumbai:</span> Turner Rd, Bandra West</li>
+            <li><span class="text-white font-semibold">New Delhi:</span> Ring Rd, Defence Colony</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">OPD Helpline</h4>
+          <p class="text-xs text-slate-400 mb-2">Central Desk: <span class="text-white font-bold">+91 80 4921 9800</span></p>
+          <p class="text-xs text-slate-400 mb-4">Email: <span class="text-white">care@kavachdental.in</span></p>
+          <div class="inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-800 text-emerald-300 text-xs px-3.5 py-2 rounded-xl">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>All Centers Open 6 Days a Week</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-xs gap-4">
+        <p>&copy; 2026 KAVACH Dental Hospital. All clinical rights reserved. DCI Reg #KA-2018-DCI-9041.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">NABH Quality Charter</a>
+          <a href="#" class="hover:text-slate-300">Biomedical Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- 6. APPOINTMENT MODAL -->
+  <!-- ========================================================================= -->
+  <div id="appointment-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-dark-900 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded border border-brand-100">
+          Hospital Appointment
+        </span>
+        <h3 class="font-serif text-2xl font-bold text-dark-900 mt-2">Book Doctor Visit</h3>
+        <p class="text-xs text-dark-700 mt-1">Confirmed OPD slot with senior dental specialists.</p>
+      </div>
+
+      <form onsubmit="handleAppointmentSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-dark-900 mb-1">Full Patient Name *</label>
+          <input type="text" required placeholder="e.g. Ramesh Kumar" class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Mobile (+91) *</label>
+            <input type="tel" required placeholder="98765 43210" class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Select Hospital *</label>
+            <select class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none bg-white">
+              <option>Bengaluru (Indiranagar)</option>
+              <option>Mumbai (Bandra West)</option>
+              <option>New Delhi (Defence Colony)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-dark-900 mb-1">Treatment / Concern *</label>
+          <input type="text" id="modal-dept-input" value="Laser Teeth Whitening" class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none bg-slate-50 font-semibold text-brand-900">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Preferred Date *</label>
+            <input type="date" required class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-dark-900 mb-1">Preferred Time *</label>
+            <select class="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:border-brand-900 focus:outline-none bg-white">
+              <option>Morning (10:00 AM - 01:00 PM)</option>
+              <option>Afternoon (02:00 PM - 05:00 PM)</option>
+              <option>Evening (05:00 PM - 08:30 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-sm py-3.5 rounded-xl shadow transition mt-2">
+          Confirm Appointment (₹500 at Desk)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const toggle = document.getElementById('mobile-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', () => {
+        drawer.classList.toggle('hidden');
+      });
+    }
+
+    function openModal(service) {
+      const modal = document.getElementById('appointment-modal');
+      const input = document.getElementById('modal-dept-input');
+      if (input && service) input.value = service;
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('appointment-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your appointment request has been logged. Our hospital coordinator will send your confirmation token via SMS & WhatsApp within 10 minutes.');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
