@@ -65,6 +65,14 @@
   <meta name="twitter:description" content="Turn yellow stained teeth into radiant white enamel. In-office laser whitening, painless microscope RCT, titanium implants &amp; transparent hospital billing.">
   <meta name="twitter:image" content="https://kannanS18.github.io/dentalsite/assets/og-preview.jpg">
 
+  <!-- Progressive Web App (PWA) Tags -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#064E3B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PUREWHITE">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+
 </head>
 <body class="bg-[#FBFBFA] text-dark-900 font-sans antialiased selection:bg-brand-100 selection:text-brand-900">
 
@@ -431,5 +439,59 @@
       alert('Thank you! Your hospital appointment request has been logged. Our coordinator will send your confirmation token via SMS & WhatsApp within 10 minutes.');
     }
   </script>
+
+  <!-- PWA Mobile Install Floating Prompt -->
+  <div id="pwa-install-banner" class="hidden fixed bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 bg-dark-950 text-white p-4 rounded-2xl shadow-2xl border border-emerald-500/40 z-50 flex items-center justify-between gap-4 backdrop-blur-md">
+    <div class="flex items-center gap-3">
+      <img src="assets/icon-192.png" alt="PUREWHITE App Icon" class="w-11 h-11 rounded-xl shadow-md border border-emerald-400/30">
+      <div>
+        <div class="text-xs font-bold text-emerald-400 uppercase tracking-wide">Install Web App</div>
+        <div class="text-sm font-extrabold text-white leading-tight">PUREWHITE Dental</div>
+        <div class="text-[11px] text-slate-300">Fast offline access &amp; instant booking</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="triggerPWAInstall()" class="bg-emerald-500 hover:bg-emerald-400 text-dark-950 font-extrabold text-xs px-3.5 py-2 rounded-xl shadow transition">
+        Install
+      </button>
+      <button onclick="document.getElementById('pwa-install-banner').classList.add('hidden')" class="text-slate-400 hover:text-white p-1.5 text-xs font-bold">
+        &times;
+      </button>
+    </div>
+  </div>
+
+  <!-- PWA Service Worker Registration & Install Banner -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('PWA ServiceWorker registered successfully:', reg.scope))
+          .catch(err => console.error('PWA ServiceWorker registration failed:', err));
+      });
+    }
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const banner = document.getElementById('pwa-install-banner');
+      if (banner) banner.classList.remove('hidden');
+    });
+
+    function triggerPWAInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User installed the PUREWHITE Dental PWA');
+          }
+          deferredPrompt = null;
+          const banner = document.getElementById('pwa-install-banner');
+          if (banner) banner.classList.add('hidden');
+        });
+      }
+    }
+  </script>
+
 </body>
 </html>

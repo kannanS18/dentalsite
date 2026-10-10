@@ -1,5 +1,6 @@
 # Temporary verification screenshots
 *.png
+!assets/icon-*.png
 dom_dump.txt
 test_core.html
 test_render_teeth.html
