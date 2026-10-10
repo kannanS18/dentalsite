@@ -230,11 +230,11 @@
 
           <div class="flex items-center gap-4">
             <div class="text-right">
-              <span class="text-xs text-dark-700 block">All-Inclusive Fee</span>
-              <span class="text-base font-extrabold text-brand-900">₹12,000</span>
+              <span class="text-xs text-dark-700 block">Hospital Tariff</span>
+              <span class="text-base font-extrabold text-brand-900">₹8,500</span>
             </div>
             <button onclick="openModal('Teeth Whitening')" class="bg-brand-900 hover:bg-brand-800 text-white text-xs font-bold px-5 py-3 rounded-xl transition shadow">
-              Book Whitening Visit &rarr;
+              Book Bleaching Visit &rarr;
             </button>
           </div>
         </div>
@@ -319,26 +319,26 @@
             <div class="md:col-span-8 space-y-3">
               <div class="flex items-center gap-2">
                 <span id="est-badge" class="bg-emerald-100 text-brand-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase">
-                  Aesthetic Dentistry
+                  Aesthetic Dentistry &amp; Bleaching
                 </span>
                 <span id="est-time" class="text-xs text-dark-700 font-bold">1 Visit &bull; 45 Minutes</span>
               </div>
               <h3 id="est-title" class="font-serif text-2xl sm:text-3xl font-extrabold text-dark-900">
-                Philips Zoom Laser Teeth Whitening
+                In-Office Laser Vital Bleaching (Philips Zoom Power Bleaching)
               </h3>
               <p id="est-desc" class="text-sm text-dark-700 leading-relaxed">
-                Removes deep tea and coffee stains using dental-grade cold LED technology. Up to 8 shades whiter with zero enamel erosion.
+                Oxidizes deep chromogenic tea, coffee, and dietary stains using cold LED photo-activation with gingival barrier isolation. Up to 8 VITA shades whiter with zero enamel erosion.
               </p>
               <div class="text-xs text-dark-800 font-semibold pt-1">
-                Consulting Doctor: <strong id="est-doctor" class="text-brand-900 font-extrabold">Dr. Rohan Mehra, MDS</strong>
+                Consulting Specialist: <strong id="est-doctor" class="text-brand-900 font-extrabold">Dr. Rohan Mehra, MDS</strong>
               </div>
             </div>
 
             <div class="md:col-span-4 bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 text-center flex flex-col justify-between">
               <div>
                 <span class="text-xs font-bold text-dark-700 uppercase">Hospital Tariff</span>
-                <div id="est-price" class="text-3xl font-extrabold text-brand-900 my-1">₹12,000</div>
-                <span class="text-[11px] text-emerald-700 font-bold block">100% Transparent Billing</span>
+                <div id="est-price" class="text-3xl font-extrabold text-brand-900 my-1">₹8,500</div>
+                <span class="text-[11px] text-emerald-700 font-bold block">NABH Itemized Billing</span>
               </div>
               <button onclick="bookEstimatorSelection()" class="mt-4 w-full bg-brand-900 hover:bg-brand-800 text-white font-bold text-xs py-3.5 rounded-xl transition shadow">
                 Book This Treatment &rarr;
@@ -780,36 +780,36 @@
     // =========================================================================
     const estimatorData = {
       whitening: {
-        badge: 'Aesthetic Dentistry',
+        badge: 'Aesthetic Dentistry & Bleaching',
         time: '1 Visit \u2022 45 Minutes',
-        title: 'Philips Zoom Laser Teeth Whitening',
-        desc: 'Removes deep tea, coffee, and spice stains using dental-grade cold LED laser. Up to 8 shades whiter with zero enamel erosion.',
+        title: 'In-Office Laser Vital Bleaching (Philips Zoom)',
+        desc: 'Oxidizes deep chromogenic tea, coffee, and spice stains using dental-grade cold LED photo-activation with gingival barrier isolation. Up to 8 VITA shades whiter.',
         doctor: 'Dr. Rohan Mehra, MDS',
-        price: '₹12,000'
+        price: '₹8,500'
       },
       rootcanal: {
-        badge: 'Micro-Endodontics',
+        badge: 'Micro-Endodontic Therapy',
         time: '1 Visit \u2022 60 Minutes',
-        title: 'Single-Sitting Painless Root Canal',
-        desc: 'Save your natural infected tooth under Carl Zeiss 24x surgical microscopes. Completely pain-free with 3D thermoplastic obturation.',
+        title: 'Single-Sitting Micro-Endodontic Therapy (Molar RCT)',
+        desc: 'Save your natural infected tooth under Carl Zeiss 24x surgical microscopes. Completely pain-free with rotary NiTi files and 3D thermoplastic obturation.',
         doctor: 'Dr. Ananya Sharma, MDS (AIIMS)',
-        price: '₹7,500'
+        price: '₹5,000'
       },
       implant: {
-        badge: 'Guided Implantology',
+        badge: 'Guided Implantology & Prosthetics',
         time: 'Same-Day Temporary Loading',
-        title: 'Nobel Biocare Titanium Dental Implant',
-        desc: 'Permanent replacement for missing teeth anchored directly into jawbone with 3D CBCT computer guides. Lifetime manufacturer warranty.',
+        title: 'Endosseous Titanium Dental Implant (Nobel Biocare)',
+        desc: 'Permanent biocompatible titanium fixture anchored directly into jawbone with 3D CBCT computer guides. Authentic serial barcode warranty passport.',
         doctor: 'Dr. Vikramaditya Sen, MDS (PGIMER)',
-        price: '₹38,000'
+        price: '₹32,000'
       },
       aligners: {
-        badge: 'Orthodontics',
+        badge: 'Clear Aligner Orthodontics',
         time: '6 to 9 Months Total Course',
-        title: 'Invisalign Clear Aligners',
-        desc: 'Removable transparent aligner trays that straighten crowded or crooked teeth without uncomfortable metal brackets or dietary restrictions.',
+        title: 'Clear Aligner Orthodontic Therapy (Comprehensive)',
+        desc: 'Series of custom medical-grade thermoplastic aligners to correct crowding and spacing with zero dietary restrictions or metal brackets.',
         doctor: 'Dr. Sneha Pillai, MDS',
-        price: '₹1,20,000'
+        price: '₹75,000'
       }
     };
 
