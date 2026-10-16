@@ -1,7 +1,7 @@
 {
-  "name": "PUREWHITE Dental Hospital",
-  "short_name": "PUREWHITE",
-  "description": "NABH-accredited tertiary oral healthcare hospital specializing in laser teeth whitening, microscope root canals, and dental implants.",
+  "name": "Dental Clinic",
+  "short_name": "Dental Clinic",
+  "description": "NABH-accredited tertiary oral healthcare clinic specializing in laser teeth whitening, microscope root canals, and dental implants.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -22,5 +22,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["medical", "health", "lifestyle"]
+  "categories": [
+    "medical",
+    "health",
+    "lifestyle"
+  ]
 }
